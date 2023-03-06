@@ -1,0 +1,14 @@
+{
+  "name": "vite-learn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:f5l5y5/vite-learn.git",
+  "author": "f5l5y5 <1273179133@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^4.1.4"
+  }
+}
