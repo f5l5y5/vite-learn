@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+const path = require('path')
 const postcssPresetEnv  = require("postcss-preset-env")
 
 export default defineConfig({
@@ -24,8 +25,10 @@ export default defineConfig({
 			sass:{}
 		},
 		devSourcemap: true,
-		// postcss: {
-			// plugins:[postcssPresetEnv()] // 可以直接写postcssPresetEnv 不要任何配置
-		// }
+		postcss: {
+			plugins: [postcssPresetEnv({
+				importFrom:path.resolve(__dirname,'./varible.css')
+			})] // 可以直接写postcssPresetEnv 不要任何配置
+		}
 	}
 });
