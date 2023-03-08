@@ -1,3 +1,27 @@
 import { defineConfig } from "vite";
 
-export default defineConfig({});
+export default defineConfig({
+	css: {// 对css的行为进行配置
+		modules: { // 对css模块化的默认行为进行覆盖
+			localsConvention: "dashes",
+			scopeBehaviour:"local",
+			// generateScopedName:"[name]-[local]-[hash:5]"
+			// generateScopedName: (name,filename,css) => {
+
+			// 	return `${name}_${Math.random().toString(36).substr(3, 8) }`
+			// },
+			// hashPrefix:"hello",
+			// globalModulePaths:["./componentB.module.css"]
+		},
+		preprocessorOptions: {
+			less: {
+				math: "always",
+				globalVars: {
+					mainColor:'red'
+				},
+			},
+			sass:{}
+		},
+		devSourcemap:true,
+	}
+});
