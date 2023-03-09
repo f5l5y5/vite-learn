@@ -8,6 +8,7 @@ import "./varible.css";
 import "./src/imageLoader";
 import jsonFile from "@assets/json/index.json";
 import { name } from "@assets/json/index.json";
+import "./src/svgLoader"
 
 // 这个对象我都用到了, 那么打包工具敢删除对象里面的成员吗？？？
 

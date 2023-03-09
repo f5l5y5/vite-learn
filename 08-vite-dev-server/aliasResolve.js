@@ -7,10 +7,12 @@ module.exports = function (aliasConf, JSContent) {
     console.log("打印***alias", alias);
     console.log("打印***path", path);
 
-    const srcIndex = path.indexOf("/src");
+    const srcIndex = path.replace(/\\/g,'/').indexOf("/src")
+    // const srcIndex = path.indexOf("/src");
     const realPath = path.slice(srcIndex, path.length);
     console.log("打印***realpath", realPath);
-    lastContent = JSContent.replace(alias, realPath);
+    lastContent = JSContent.replace(alias, realPath).replace(/\\/,'/');
+    // lastContent = JSContent.replace(alias, realPath);
     console.log("打印***lastContent", lastContent);
   });
   return lastContent;
