@@ -40,5 +40,17 @@ export default defineConfig({
         }),
       ], // 可以直接写postcssPresetEnv 不要任何配置
     },
-  },
+	},
+	build: {
+		rollupOptions: {
+			output: {
+				assetFileNames:"[hash].[name].[ext]"
+			},
+		},
+		assetsInlineLimit: 2048000,
+		outDir:'build',
+		assetsDir:"static"
+		
+
+	}
 });
