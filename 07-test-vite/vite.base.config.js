@@ -3,6 +3,10 @@ const path = require('path')
 // const postcssPresetEnv = require("postcss-preset-env");
 // import { ViteAliases } from "vite-aliases";
 import MyViteAlias from './plugins/ViteAliases'
+// import { createHtmlPlugin } from 'vite-plugin-html'
+import CreateHtmlPlugin from './plugins/CreateHtmlPlugin'
+import { viteMockServe } from 'vite-plugin-mock'
+import VitePluginMock from './plugins/VitePluginMock'
 
 export default defineConfig({
 	resolve: {
@@ -55,6 +59,15 @@ export default defineConfig({
 	// },
 	plugins: [
 		// ViteAliases()
-		MyViteAlias()
+		MyViteAlias(),
+		CreateHtmlPlugin({
+			inject: {
+				data: {
+					title: '哈哈'
+				}
+			}
+		}),
+		// viteMockServe(),
+		VitePluginMock()
 	]
 })

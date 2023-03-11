@@ -5,10 +5,10 @@
 // import "./index.less";
 // import "./varible.css";
 
-import "@/imageLoader";
-import jsonFile from "@assets/json/index.json";
-import { name } from "@assets/json/index.json";
-import "@/svgLoader";
+// import '@/imageLoader'
+// import jsonFile from '@assets/json/index.json'
+// import { name } from '@assets/json/index.json'
+// import '@/svgLoader'
 
 // 这个对象我都用到了, 那么打包工具敢删除对象里面的成员吗？？？
 
@@ -19,4 +19,14 @@ import "@/svgLoader";
 // 控制导入
 
 // tree shaking 摇树优化: 打包工具会自动帮你移除掉那些你没有用到的变量或者方法
-console.log("打印***jsonFile", jsonFile, name); // 用的不是vite jsonFile作为json字符串形式
+// console.log("打印***jsonFile", jsonFile, name); // 用的不是vite jsonFile作为json字符串形式
+
+fetch('/api/users', {
+	method: 'post'
+})
+	.then(data => {
+		console.log('data', data)
+	})
+	.catch(error => {
+		console.log('error', error)
+	})
