@@ -7,6 +7,7 @@ import MyViteAlias from './plugins/ViteAliases'
 import CreateHtmlPlugin from './plugins/CreateHtmlPlugin'
 import { viteMockServe } from 'vite-plugin-mock'
 import VitePluginMock from './plugins/VitePluginMock'
+import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig({
 	resolve: {
@@ -68,6 +69,7 @@ export default defineConfig({
 			}
 		}),
 		// viteMockServe(),
-		VitePluginMock()
+		VitePluginMock(),
+		viteCompression()
 	]
 })

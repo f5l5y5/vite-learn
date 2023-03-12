@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		// "target": "ESNext",
+		"moduleResolution": "node", // 模块解析方案 是node
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"lib": [
+			"DOM",
+			"ES2017"
+		],
+		"allowSyntheticDefaultImports": true
+	}
+}

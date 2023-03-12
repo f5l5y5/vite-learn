@@ -8,6 +8,10 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"vite": "^4.1.4"
+		"vite": "^4.1.4",
+		"vite-plugin-cdn-import": "^0.3.5"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21"
 	}
 }

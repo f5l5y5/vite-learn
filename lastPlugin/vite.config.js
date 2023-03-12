@@ -1,14 +1,38 @@
 import { defineConfig } from 'vite'
+import importToCDN from 'vite-plugin-cdn-import'
 
 export default defineConfig({
+	server: {
+		proxy: {
+			'/api': {
+				target: 'http://www.baidu.com',
+				changeOrigin: true,
+				rewrite: path => path.replace(/^api/, '')
+			}
+		}
+	},
 	build: {
 		rollupOptions: {
+			external: ['lodash'],
+			externalGlobal: {
+				var: '_', // 默认导出的名称
+				path: 'https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.fp.min.js' // cdn地址
+			},
 			output: {
 				assetFileNames: '[hash]_[name].[ext]'
 			}
 		}
 	},
 	plugins: [
+		importToCDN({
+			modules: [
+				{
+					name: 'lodash',
+					var: '_', // 默认导出的名称
+					path: 'https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.fp.min.js' // cdn地址
+				}
+			]
+		}),
 		// vite 特殊的钩子
 		{
 			config(options) {
